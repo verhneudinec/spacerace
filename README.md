@@ -1,6 +1,6 @@
 # spacerace
 You race across the galaxy, dodging meteors and asteroids. Have fun with a friend or alone.
-
+[![GitHub watchers](https://img.shields.io/github/watchers/badges/shields.svg?style=social&label=Watch)]()
 ![ScreenShot #1 - главный экран](http://image.prntscr.com/image/dd588980f4ad4aa79b0fc49913c18cce.png)
 ![ScreenShot #2 - режим игры "один игрок"](http://image.prntscr.com/image/84f0484c259048e09af487799eef63ce.png)
 ![ScreenShot #3 - режим игры "игра с другом"](http://image.prntscr.com/image/f42bd32811284a838a1aae814ac22e76.png)
