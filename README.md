@@ -1,6 +1,10 @@
 # spacerace
 You race across the galaxy, dodging meteors and asteroids. Have fun with a friend or alone.
 
+![ScreenShot #1 - главный экран](http://image.prntscr.com/image/dd588980f4ad4aa79b0fc49913c18cce.png)
+![ScreenShot #2 - режим игры "один игрок"](http://image.prntscr.com/image/84f0484c259048e09af487799eef63ce.png)
+![ScreenShot #3 - режим игры "игра с другом"](http://image.prntscr.com/image/f42bd32811284a838a1aae814ac22e76.png)
+
 ///описание классов, основных методов и функций
 
 Класс asteroid хранит информацию об астероидах, а также имеет одноименный конструктор, инициализирующий поля во время создания объекта, подставляемый метод display(), который выводит астероид на экран и вызывает другие методы, метод escape, который проверяет выход астероида за игровое поле, метод moving(), который задает движение астероида.
