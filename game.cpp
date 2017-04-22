@@ -17,14 +17,14 @@ void game(int p) {
 	if (p == 2) { 
 		ship s1(1);
 		ship s2(2);
-		while (timer > 0) {
+		while (timer() > 0) {
 			s2.display();	checkblow(a, s2);
 			s1.display();	checkblow(a, s1);
 			for (int q = 0; q < 20; q++) a[q].display();
 			Sleep(50);
 			setcurpos(34, 27);
 			cout << " ";
-			if (timer <= 0) {
+			if (timer() <= 0) {
 			delete[] a;
 			checkdefeat(s1, s2);
 			}
@@ -32,14 +32,14 @@ void game(int p) {
 	}
 	else {
 		ship s(3);
-		while (timer>0) {
+		while (timer()>0) {
 			s.display(); checkblow(a, s);
 			for (int q = 0; q < 20; q++)  a[q].display();
 			Sleep(50);
 			checkdefeat(s);
 			setcurpos(34, 27);
 			cout << " ";
-			if (timer <= 0) {
+			if (timer() <= 0) {
 				delete[] a;
 				checkdefeat(s);
 			}
