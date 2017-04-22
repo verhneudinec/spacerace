@@ -35,7 +35,7 @@ class ship {
 	void escape() {
 		if ((positionY < 2)||(positionY > 25))
 		{
-			if (positionY < 2) { spacepoints++; cout << "    [+1 ïîèíò, +2 ñåêóíäû]"; t -= 100; Sleep(1000); }
+			if (positionY < 2) { spacepoints++; cout << "    [+1 Ð¿Ð¾Ð¸Ð½Ñ‚, +2 ÑÐµÐºÑƒÐ½Ð´Ñ‹]"; t -= 100; Sleep(1000); }
 			positionY = 25;
 			Vy = 0;
 			system("cls");
@@ -56,9 +56,9 @@ class ship {
 
 	void board() {
 		setcurpos(positionX - 1, 0);
-		cout << "î÷êè: " << spacepoints;
+		cout << "Ð¾Ñ‡ÐºÐ¸: " << spacepoints;
 		c.X = 25; c.Y = 27; SetConsoleCursorPosition(hStdOut, c);
-		cout << "òàéìåð: " << timer();
+		cout << "Ñ‚Ð°Ð¹Ð¼ÐµÑ€: " << timer();
 	}
 
 	void kbht();
