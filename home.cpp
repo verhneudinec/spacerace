@@ -19,23 +19,23 @@ void home() {
 
 			text = 7; background = 0; if (x == 1) { text = 0; background = 14; }
 			SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-			cout << "1. Одиночная игра \n\n";
+			cout << "1. РћРґРёРЅРѕС‡РЅР°СЏ РёРіСЂР° \n\n";
 
 			text = 7; background = 0; if (x == 2) { text = 0; background = 13; }
 			SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-			cout << "2. Игра с другом \n\n";
+			cout << "2. РРіСЂР° СЃ РґСЂСѓРіРѕРј \n\n";
 
 			text = 7; background = 0; if (x == 3) { text = 0; background = 10; }
 			SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-			cout << "3. Помощь \n\n";
+			cout << "3. РџРѕРјРѕС‰СЊ \n\n";
 
 			text = 7; background = 0; if (x == 4) { text = 0; background = 11; }
 			SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-			cout << "4. Таблица рекордов \n\n";
+			cout << "4. РўР°Р±Р»РёС†Р° СЂРµРєРѕСЂРґРѕРІ \n\n";
 
 			text = 7; background = 0; if (x == 5) { text = 0; background = 12; }
 			SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
-			cout << "5. Выход \n\n";
+			cout << "5. Р’С‹С…РѕРґ \n\n";
 
 			text = 7; background = 0;
 			SetConsoleTextAttribute(hStdOut, (WORD)((background << 12) | text));
@@ -63,7 +63,7 @@ void home() {
 void go2main() {
 	HANDLE hConsoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsoleHandle, (WORD)((14 << 4) | 0));
-	cout << "\n\n-> Меню (Enter)";
+	cout << "\n\n-> РњРµРЅСЋ (Enter)";
 
 	int x = 1;	int key = _getch();
 	if (key == 13) main();
@@ -72,8 +72,8 @@ void help() {
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hStdOut, 14);
 	cout << "\n]]]]]]   ]]]]   ]]   ]]   ]]]]   ]]   ]]  ]]\n]]  ]]  ]]  ]]  ]]] ]]]  ]]  ]]  ]]   ]]  ]]\n]]  ]]  ]]  ]]  ]] ] ]]  ]]  ]]  ]] ] ]]  ]]]]\n]]  ]]  ]]  ]]  ]]   ]]  ]]  ]]  ]] ] ]]  ]]  ]]\n]]  ]]   ]]]]   ]]   ]]   ]]]]   ]]]]] ]] ]]]]]\n\n";
-	cout << "Правила: " << "\n- за пролет через все поле +1 космический поинт и +2 секунды;\n- за столкновение с астероидом -4 секунды.\n\n";
-	cout << "Управление: " << "\n1 игрок: стрелки;\n2 игрок: w, a, s, d.";
+	cout << "РџСЂР°РІРёР»Р°: " << "\n- Р·Р° РїСЂРѕР»РµС‚ С‡РµСЂРµР· РІСЃРµ РїРѕР»Рµ +1 РєРѕСЃРјРёС‡РµСЃРєРёР№ РїРѕРёРЅС‚ Рё +2 СЃРµРєСѓРЅРґС‹;\n- Р·Р° СЃС‚РѕР»РєРЅРѕРІРµРЅРёРµ СЃ Р°СЃС‚РµСЂРѕРёРґРѕРј -4 СЃРµРєСѓРЅРґС‹.\n\n";
+	cout << "РЈРїСЂР°РІР»РµРЅРёРµ: " << "\n1 РёРіСЂРѕРє: СЃС‚СЂРµР»РєРё;\n2 РёРіСЂРѕРє: w, a, s, d.";
 	go2main();
 }
 void seerec() {
@@ -94,7 +94,7 @@ void seerec() {
 
 	}
 
-	else cout << "\nВы еще не играли (!)\n";
+	else cout << "\nР’С‹ РµС‰Рµ РЅРµ РёРіСЂР°Р»Рё (!)\n";
 	f.close();
 	go2main();
 }
