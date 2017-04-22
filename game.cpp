@@ -12,33 +12,38 @@ int timer(){
 	return 60-t/40;
 }
 void game(int p) {
+	asteroid *a = new asteroid[20];
 	if (p == 2) { 
 		ship s1(1);
 		ship s2(2);
-		asteroid *a = new asteroid[20];
-		while (timer>0) {
-			s2.display();	checkblow(a, s2);	
+		while (timer > 0) {
+			s2.display();	checkblow(a, s2);
 			s1.display();	checkblow(a, s1);
 			for (int q = 0; q < 20; q++) a[q].display();
-			checkdefeat(s1, s2);
 			Sleep(50);
 			setcurpos(34, 27);
 			cout << " ";
+			if (timer <= 0) {
+			delete[] a;
+			checkdefeat(s1, s2);
+			}
 		}
 	}
 	else {
 		ship s(3);
-		asteroid *a = new asteroid[20];
 		while (timer>0) {
 			s.display(); checkblow(a, s);
 			for (int q = 0; q < 20; q++)  a[q].display();
-			checkdefeat(s);
 			Sleep(50);
+			checkdefeat(s);
 			setcurpos(34, 27);
 			cout << " ";
+			if (timer <= 0) {
+				delete[] a;
+				checkdefeat(s);
+			}
 		}
 	}
-
 }
 
 void checkblow(asteroid *a, ship &s) {
@@ -48,7 +53,7 @@ void checkblow(asteroid *a, ship &s) {
 			s.positionY = 25;
 			s.Vy = 0;
 			t += 200;
-			cout << "    [-4 ñåêóíäû]";
+			cout << "    [-4 ÑÐµÐºÑƒÐ½Ð´Ñ‹]";
 			cout << "\a";
 			Sleep(1000);
 			system("cls");
@@ -60,14 +65,13 @@ void checkblow(asteroid *a, ship &s) {
 void checkdefeat(ship &s) {
 	if (timer()<=0)
 	{
-		
 		setcurpos(0, 27);
 		SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 12));
-		cout << "Èãðà îêîí÷åíà (!)" << endl;
+		cout << "Ð˜Ð³Ñ€Ð° Ð¾ÐºÐ¾Ð½Ñ‡ÐµÐ½Ð° (!)" << endl;
 		Sleep(1500);
 		system("pause");
 		int temp = s.getspacepoints();
-		cout << "Ñ÷åò: " << temp << endl << "Ââåäèòå âàøå èìÿ: ";
+		cout << "Ð¡Ñ‡ÐµÑ‚: " << temp << endl << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°ÑˆÐµ Ð¸Ð¼Ñ: ";
 		writerec(temp);
 	}
 }
@@ -76,20 +80,19 @@ void checkdefeat(ship &s1, ship &s2) {
 	if (timer() <= 0) {
 		setcurpos(0, 27);
 		SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 12));
-		cout << "Èãðà îêîí÷åíà (!)" << endl;
+		cout << "Ð˜Ð³Ñ€Ð° Ð¾ÐºÐ¾Ð½Ñ‡ÐµÐ½Ð° (!)" << endl;
 		if (s1.getspacepoints() > s2.getspacepoints())
 		{
-			cout << "1 ÈÃÐÎÊ ÏÎÁÅÄÈË!" << endl;
+			cout << "1 Ð˜Ð“Ð ÐžÐš ÐŸÐžÐ‘Ð•Ð”Ð˜Ð›!" << endl;
 		}
 		else if(s1.getspacepoints() < s2.getspacepoints()) {
-			cout << "2 ÈÃÐÎÊ ÏÎÁÅÄÈË!" << endl;
+			cout << "2 Ð˜Ð“Ð ÐžÐš ÐŸÐžÐ‘Ð•Ð”Ð˜Ð›!" << endl;
 		}
 		Sleep(1500);
 		system("pause");
 		int temp = (s2.getspacepoints() + s1.getspacepoints()) / 2;
-		cout << "Îáùèé ñ÷åò: " << temp << endl << "Ââåäèòå íàçâàíèå êîìàíäû: ";
+		cout << "ÐžÐ±Ñ‰Ð¸Ð¹ ÑÑ‡ÐµÑ‚: " << temp << endl << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹: ";
 		writerec(temp);
-		go2main();
 	}
 }
 
@@ -98,7 +101,7 @@ void writerec(int &pscore) {
 	stat("spacetop.txt", &filesize);
 	if (filesize.st_size == 0) {
 		ofstream d("spacetop.txt");
-		d << "Ïåðâûé " << 30 << endl;
+		d << "ÐŸÐµÑ€Ð²Ñ‹Ð¹ " << 30 << endl;
 		d << "CJIoHuK " << 22 << endl;
 		d << "IceStorm " << 19 << endl;
 		d << "V1tam1nk0 " << 10 << endl;
@@ -121,7 +124,7 @@ void writerec(int &pscore) {
 			i++;
 		}
 	}
-	else cout << "\nÍå óäàëîñü îòêðûòü ôàéë (!)\n";
+	else cout << "\nÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» (!)\n";
 	f.close();
 
 	for (int j = 0; j < 6; j++) {
@@ -139,7 +142,7 @@ void writerec(int &pscore) {
 	for (int j = 0; j < 5; j++) {
 		g << ords[j].name << " " << ords[j].points << endl;
 	}
+	delete[] ords;
 	g.close();
 	go2main();
-
 }
