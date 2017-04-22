@@ -12,6 +12,7 @@ int timer(){
 	return 60-t/40;
 }
 void game(int p) {
+	t = 0;
 	asteroid *a = new asteroid[20];
 	if (p == 2) { 
 		ship s1(1);
