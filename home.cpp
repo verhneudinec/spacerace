@@ -2,8 +2,11 @@
 #include "modules.h"
 #include <conio.h>
 #include "fstream"
+
 void main();
-void home() {
+
+void home() 
+{
 
 	int text = 7, background = 0;
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -11,9 +14,9 @@ void home() {
 
 	while (flag == 0)
 	{
-		
 		int x = 1;
-		while (key != 13) {
+		while (key != 13) 
+		{
 			SetConsoleTextAttribute(hStdOut, 11);
 			cout << " ]]]]  ]]]]]   ]]]]   ]]]]  ]]]]]\n]]     ]]  ]] ]]  ]] ]]  ]] ]]\n ]]]]  ]]]]]  ]]]]]] ]]     ]]]]\n    ]] ]]     ]]  ]] ]]  ]] ]]\n ]]]]  ]]     ]]  ]]  ]]]]  ]]]]]" << endl << endl << "]]]]]   ]]]]   ]]]]  ]]]]]\n]]  ]] ]]  ]] ]]  ]] ]]\n]]]]]  ]]]]]] ]]     ]]]]\n]]  ]] ]]  ]] ]]  ]] ]]\n]]  ]] ]]  ]]  ]]]]  ]]]]]" << endl << endl << endl;
 
@@ -51,24 +54,26 @@ void home() {
 		} key = 0;
 		switch (x)
 		{
-		case 1: {system("cls"); game(1); break; }
-		case 2: {system("cls"); game(2); break; }
-		case 3: {system("cls"); help(); break; }
-		case 4: {system("cls"); seerec(); break; }
-		case 5: {system("cls"); exit(0); break; }
+		case 1: { system("cls"); game(1); break; }
+		case 2: { system("cls"); game(2); break; }
+		case 3: { system("cls"); help(); break; }
+		case 4: { system("cls"); seerec(); break; }
+		case 5: { system("cls"); exit(0); break; }
 		}
 	}
 }
 
-void go2main() {
+void go2main() 
+{
 	HANDLE hConsoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsoleHandle, (WORD)((14 << 4) | 0));
 	cout << "\n\n-> Меню (Enter)";
-
 	int x = 1;	int key = _getch();
 	if (key == 13) main();
 }
-void help() {
+
+void help() 
+{
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hStdOut, 14);
 	cout << "\n]]]]]]   ]]]]   ]]   ]]   ]]]]   ]]   ]]  ]]\n]]  ]]  ]]  ]]  ]]] ]]]  ]]  ]]  ]]   ]]  ]]\n]]  ]]  ]]  ]]  ]] ] ]]  ]]  ]]  ]] ] ]]  ]]]]\n]]  ]]  ]]  ]]  ]]   ]]  ]]  ]]  ]] ] ]]  ]]  ]]\n]]  ]]   ]]]]   ]]   ]]   ]]]]   ]]]]] ]] ]]]]]\n\n";
@@ -76,7 +81,9 @@ void help() {
 	cout << "Управление: " << "\n1 игрок: стрелки;\n2 игрок: w, a, s, d.";
 	go2main();
 }
-void seerec() {
+
+void seerec() 
+{
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hStdOut, 11);
 	cout << "\n######  ####  ######    #####\n  ##   ##  ## ##  ##    ##\n  ##   ##  ## ##  ##    #####\n  ##   ##  ## ##  ##        ##\n  ##    ####  ##  ##    #####\n\n" << endl;
@@ -93,7 +100,6 @@ void seerec() {
 		}
 
 	}
-
 	else cout << "\nВы еще не играли (!)\n";
 	f.close();
 	go2main();
