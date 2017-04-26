@@ -1,4 +1,5 @@
 #include "header.h"
+
 class asteroid 
 {
 	string s;
