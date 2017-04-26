@@ -1,7 +1,10 @@
 #include "header.h"
+
 extern int t;
 extern int timer();
-class ship {
+
+class ship 
+{
 	string s;
 	int positionX;
 	int positionY; 
@@ -10,7 +13,8 @@ class ship {
 	int spacepoints;
 	int cosmiclife;
 
-    public:
+	public:
+	
 	ship(int n)
 	{
 		s = "_/|\\_";
@@ -23,7 +27,8 @@ class ship {
 		num = n;
 	}
 
-	void display() {
+	void display() 
+	{
 		kbht();
 		moving();
 		setcurpos(positionX, positionY);
@@ -32,10 +37,14 @@ class ship {
 		board();
 	}
 
-	void escape() {
+	void escape() 
+	{
 		if ((positionY < 2)||(positionY > 25))
 		{
-			if (positionY < 2) { spacepoints++; cout << "    [+1 поинт, +2 секунды]"; t -= 100; Sleep(1000); }
+			if (positionY < 2) 
+			{ 
+				spacepoints++; cout << "    [+1 поинт, +2 секунды]"; t -= 100; Sleep(1000); 
+			}
 			positionY = 25;
 			Vy = 0;
 			system("cls");
@@ -43,18 +52,21 @@ class ship {
 		
 	}
 
-	void moving() {
+	void moving() 
+	{
 		setcurpos(positionX, positionY);
 		cout << "     ";
 		positionY += Vy;
 		Vy = 0;
 	}
 
-	int getspacepoints() {
+	int getspacepoints() 
+	{
 		return spacepoints;
 	}
 
-	void board() {
+	void board() 
+	{
 		setcurpos(positionX - 1, 0);
 		cout << "очки: " << spacepoints;
 		c.X = 25; c.Y = 27; SetConsoleCursorPosition(hStdOut, c);
