@@ -1,4 +1,4 @@
-#include "header.h"
+﻿#include "header.h"
 #include "modules.h"
 #include <sys/stat.h>
 #include "fstream" 
@@ -120,16 +120,18 @@ void writerec(int &pscore)
 {
 	struct stat filesize;
 	stat("spacetop.txt", &filesize);
-	if (filesize.st_size == 0) 
+	ifstream s("spacetop.txt");
+	if ((!s)||(filesize.st_size == 0))
 	{
 		ofstream d("spacetop.txt");
 		d << "Первый " << 30 << endl;
-		d << "CJIoHuK " << 22 << endl;
-		d << "IceStorm " << 19 << endl;
-		d << "V1tam1nk0 " << 10 << endl;
+		d << "CJIoHuK " << 19 << endl;
+		d << "IceStorm " << 13 << endl;
+		d << "V1tam1nk0 " << 7 << endl;
 		d << "KyKyPy3a " << 3 << endl;
 		d.close();
 	}
+	s.close();
 
 	rec*ords = new rec[6];
 	cin >> ords[5].name;
