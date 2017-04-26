@@ -1,5 +1,6 @@
-﻿#include "header.h"
+#include "header.h"
 #include "modules.h"
+
 int main()
 {
 	SetConsoleCP(1251);
