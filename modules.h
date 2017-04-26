@@ -1,4 +1,4 @@
-#include "ship.h"
+﻿#include "ship.h"
 #include "asteroid.h"
 
 void game(int p); //основная функция

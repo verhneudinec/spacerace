@@ -1,4 +1,4 @@
-#include "header.h"
+﻿#include "header.h"
 
 extern int t;
 extern int timer();
