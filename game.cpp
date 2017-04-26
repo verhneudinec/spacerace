@@ -2,44 +2,58 @@
 #include "modules.h"
 #include <sys/stat.h>
 #include "fstream" 
-struct rec {
+
+struct rec 
+{
 	char name[25];
 	int points;
 };
+
 int t = 0;
-int timer(){
+
+int timer()
+{
 	t++;
 	return 60-t/40;
 }
-void game(int p) {
+
+void game(int p) 
+{
 	t = 0;
 	asteroid *a = new asteroid[20];
-	if (p == 2) { 
+	if (p == 2) 
+	{ 
 		ship s1(1);
 		ship s2(2);
-		while (timer() > 0) {
+		while (timer() > 0) 
+		{
 			s2.display();	checkblow(a, s2);
 			s1.display();	checkblow(a, s1);
 			for (int q = 0; q < 20; q++) a[q].display();
 			Sleep(50);
 			setcurpos(34, 27);
 			cout << " ";
-			if (timer() <= 0) {
+			if (timer() <= 0) 
+			{
 			delete[] a;
 			checkdefeat(s1, s2);
 			}
 		}
 	}
-	else {
+	
+	else 
+	{
 		ship s(3);
-		while (timer()>0) {
+		while (timer()>0) 
+		{
 			s.display(); checkblow(a, s);
 			for (int q = 0; q < 20; q++)  a[q].display();
 			Sleep(50);
 			checkdefeat(s);
 			setcurpos(34, 27);
 			cout << " ";
-			if (timer() <= 0) {
+			if (timer() <= 0) 
+			{
 				delete[] a;
 				checkdefeat(s);
 			}
@@ -47,10 +61,12 @@ void game(int p) {
 	}
 }
 
-void checkblow(asteroid *a, ship &s) {
+void checkblow(asteroid *a, ship &s) 
+{
 	for (int w = 0; w < 20; w++)
 	{
-		if ((s.positionX - a[w].positionX <= 0) && (s.positionX - a[w].positionX >= -4) && (s.positionY == a[w].positionY)) {
+		if ((s.positionX - a[w].positionX <= 0) && (s.positionX - a[w].positionX >= -4) && (s.positionY == a[w].positionY)) 
+		{
 			s.positionY = 25;
 			s.Vy = 0;
 			t += 200;
@@ -62,8 +78,8 @@ void checkblow(asteroid *a, ship &s) {
 	}
 }
 
-
-void checkdefeat(ship &s) {
+void checkdefeat(ship &s) 
+{
 	if (timer()<=0)
 	{
 		setcurpos(0, 27);
@@ -77,8 +93,10 @@ void checkdefeat(ship &s) {
 	}
 }
 
-void checkdefeat(ship &s1, ship &s2) {
-	if (timer() <= 0) {
+void checkdefeat(ship &s1, ship &s2) 
+{
+	if (timer() <= 0) 
+	{
 		setcurpos(0, 27);
 		SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 12));
 		cout << "Игра окончена (!)" << endl;
@@ -86,7 +104,8 @@ void checkdefeat(ship &s1, ship &s2) {
 		{
 			cout << "1 ИГРОК ПОБЕДИЛ!" << endl;
 		}
-		else if(s1.getspacepoints() < s2.getspacepoints()) {
+		else if(s1.getspacepoints() < s2.getspacepoints()) 
+		{
 			cout << "2 ИГРОК ПОБЕДИЛ!" << endl;
 		}
 		Sleep(1500);
@@ -97,10 +116,12 @@ void checkdefeat(ship &s1, ship &s2) {
 	}
 }
 
-void writerec(int &pscore) {
+void writerec(int &pscore) 
+{
 	struct stat filesize;
 	stat("spacetop.txt", &filesize);
-	if (filesize.st_size == 0) {
+	if (filesize.st_size == 0) 
+	{
 		ofstream d("spacetop.txt");
 		d << "Первый " << 30 << endl;
 		d << "CJIoHuK " << 22 << endl;
@@ -127,11 +148,13 @@ void writerec(int &pscore) {
 	}
 	else cout << "\nНе удалось открыть файл (!)\n";
 	f.close();
+	for (int j = 0; j < 6; j++) 
+	{
 
-	for (int j = 0; j < 6; j++) {
-
-		for (int k = 0; k < 5; k++) {
-			if (ords[k].points < ords[k + 1].points) {
+		for (int k = 0; k < 5; k++) 
+		{
+			if (ords[k].points < ords[k + 1].points) 
+			{
 				rec temp;
 				temp = ords[k];
 				ords[k] = ords[k + 1];
@@ -140,7 +163,8 @@ void writerec(int &pscore) {
 		}
 	}
 	ofstream g("spacetop.txt");
-	for (int j = 0; j < 5; j++) {
+	for (int j = 0; j < 5; j++) 
+	{
 		g << ords[j].name << " " << ords[j].points << endl;
 	}
 	delete[] ords;
